@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0B2434;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Karla, sans-serif;
+}
+
+div#root {
+  height: 100%;
+  width: 100%;
+  max-height: 600px;
+  max-width: 800px;
+}
+
+main {
+  background-color: #F5F5F5;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title {
+  font-size: 40px;
+  margin: 0;
+}
+
+.instructions {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  /* Space out the time and rolls evenly */
+  align-items: center;
+  /* Center items vertically */
+  margin: 20px 0;
+  /* Add some margin above and below */
+  padding: 10px;
+  background-color: #f5f5f5;
+  /* Light background color */
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  font-family: Inter, sans-serif;
+  /* Match your game's font */
+}
+
+.stats p {
+  margin: 0;
+  /* Remove default paragraph margin */
+  font-size: 1.2rem;
+  /* Slightly larger font size */
+  font-weight: bold;
+  /* Bold text for emphasis */
+  color: #333;
+  /* Dark text color */
+}
+
+.stats p::before {
+  content: '⏱️';
+  /* Clock emoji for time */
+  margin-right: 8px;
+  /* Space between emoji and text */
+}
+
+.stats p:nth-child(2)::before {
+  content: '🎲';
+  padding-left: 5px;
+  /* Dice emoji for rolls */
+}
+
+.dice-container {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* Dice Container */
+.die-face {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  padding: 0;
+  /* Remove default button padding */
+}
+
+.die-face:hover {
+  transform: scale(1.1);
+  /* Slight zoom on hover */
+}
+
+/* Dot Container */
+.dot-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+/* Dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 3px;
+}
+
+/* Dice Face Arrangements */
+.face-1 .dot-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.face-2 .dot-container {
+  justify-content: space-between;
+}
+
+.face-2 .dot:nth-child(2) {
+  align-self: flex-end;
+}
+
+.face-3 .dot-container {
+  justify-content: space-between;
+}
+
+.face-3 .dot:nth-child(2) {
+  align-self: center;
+}
+
+.face-3 .dot:nth-child(3) {
+  align-self: flex-end;
+}
+
+.face-4 .dot-container,
+.face-6 .dot-container {
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.face-5 .dot-container {
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.face-5 .dot:nth-child(3) {
+  align-self: center;
+}
+
+.face-6 .dot-container {
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+button {
+  font-family: Karla, sans-serif;
+  cursor: pointer;
+}
+
+.dice-container button {
+  height: 50px;
+  width: 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  font-size: 1.5rem;
+  color: #2B283A;
+  font-weight: bold;
+}
+
+button.roll-dice {
+  height: 50px;
+  white-space: nowrap;
+  width: auto;
+  padding: 6px 21px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5035EF;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  /* margin-top: 50px; */
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
